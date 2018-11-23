@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n = parseInt(prompt("Enter how much to add", "0"));//parseInt приводит к целочисленыйм
+         function fib(n) {
+             let f0 = parseInt(prompt("Enter a 1st number", "0"));
+             let f1 = parseInt(prompt("Enter a 2nd number", "0"));
+             for (let i = 0; i < n; i++) {
+                 let f2 =Number(f0) + Number(f1);
+                 document.write(f2 + ("</br>"));
+                 f0 = Number(f1);
+                 f1 = Number(f2);
+             }
+            // document.write (f1);
+         }
+          alert(fib(n));
+
+       // let a =(n + 1);
+        //alert(a);
+    </script>
+
+</body>
+
+</html>

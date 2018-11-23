@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // создаем ф-цию клонирования
+        function cloning(original) {
+            if (typeof original !== 'object') {
+                return original;
+            }
+            let clone = {};
+            for (let i in original) {
+                if (original.hasOwnProperty(i)) {
+                    // проверка на обьект
+                    if (original && typeof this[i] === 'object') {
+                        clone[i] = original[i].cloning(true);
+                    } //проверка на массив
+                    else if (original instanceof Array) {
+                        clone[i] = original[i].cloning(original);
+                    } else {
+                        clone[i] = original[i];
+                    }
+                }
+            }
+            return clone;
+        }
+        // Обект клонирования
+        let objectToBeCloned = {
+            name: "Taras", //(prompt("Entre your name:", "")),
+            age: Number(25), //Number(prompt("Entre your age:", "0")),
+            skills: {
+                driving: "no",
+                computre: "no"
+            },
+            arr: [1, 2, 5]
+        }
+        // Обект клона и вызов функции клонирования
+        let objectCloned = cloning(objectToBeCloned);
+        console.log(objectCloned);
+
+
+        /*
+        //клонирование с помощью assign
+        let objectCloned = Object.assign({}, objectToBeCloned);
+        //клонирование с помощью jQuerry
+        let objectCloned = jQuery.extend(true, {}, objectToBeCloned);
+        */
+    </script>
+
+</body>
+
+</html>
