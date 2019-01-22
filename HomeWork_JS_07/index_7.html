@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let user1 = [{
+                name: "Ivan",
+                surname: "Ivanov",
+                gender: "male",
+                age: 30
+            },
+            {
+                name: "Anna",
+                surname: "Ivanova",
+                gender: "female",
+                age: 22
+            }
+        ]
+
+        const user2 = [{
+                name: "Kolia",
+                surname: "Ivanov",
+                gender: "male",
+                age: 30
+            },
+            {
+                name: "Anna",
+                surname: "Ivanova",
+                gender: "female",
+                age: 22
+            }
+        ]
+       function excludeBy(arr1, arr2, id){
+               let uniq = []
+               for(let i of arr1){
+                   let isExclude = false;
+                   for(let j of arr2){
+                       if(i[id] == j[id]){
+                           isExclude = true;
+                       }
+                   }
+                   if(!isExclude){
+                       uniq.push(i);
+                   }
+
+               }
+               return uniq;
+           }
+           let uniq = excludeBy(user1, user2, "name");
+           console.log(uniq);
+       
+    </script>
+
+</body>
+
+</html>

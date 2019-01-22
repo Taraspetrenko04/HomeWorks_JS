@@ -18,7 +18,7 @@
             for (let i in original) {
                 if (original.hasOwnProperty(i)) {
                     // проверка на обьект
-                    if (original && typeof this[i] === 'object') {
+                    if (original && typeof this[i] === 'Object') {
                         clone[i] = original[i].cloning(true);
                     } //проверка на массив
                     else if (original instanceof Array) {

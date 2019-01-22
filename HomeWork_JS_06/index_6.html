@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style_6.css">
+    
+</head>
+
+<body>
+    <header class="title-top">
+        <p class="title-top-text">home work js № 6</p>
+    </header>
+    <section class="task-section">
+        <form action="#" class="form-section">
+            <p><input type="text" id="first-name" placeholder="First Name"></p>
+            <p><input type="text" id="last-name" placeholder="Last Name"></p>
+            <p><input type="submit" value="Get Login" id="get-login"></p>
+            <p><input type="text" id="login" ></p>
+            <!-- <ul class="items-properties">
+                <li class="item-position">enter your first name</li>
+                <li class="item-position"><input type="text" class="first-name" placeholder="First Name"></li>
+                <li class="item-position">enter your last</li>
+                <li class="item-position"><input type="text" class="last-name" placeholder="Last Name"></li>
+                <li class="item-position"><input type="submit" value="Get Login" class="get-login"></li>
+                <li class="item-position">your login is:</li>
+                <li class="item-position"><input name="log" type="text" class="login"></li>
+            </ul>-->
+        </form>
+    </section>
+    <script>
+        let firstName = document.getElementById("first-name");
+        let lastName = document.getElementById("last-name");
+        let button = document.getElementById("get-login")
+        /* let firstName = document.querySelector('ul:second-child');//document.getElementByClassName("first-name");
+         let lastName = document.getElementsByClassName("last-name");
+         let button = document.getElementsByClassName("get-login")[0];*/
+
+        button.addEventListener("click", function() {
+            if (firstName.value.length == 0 || lastName.value.length == 0) {
+                alert("Вы не ввели значение ");
+            } else {
+                let user = new createNewUser(firstName.value, lastName.value);
+                //console.log(user.getLog());
+                //let divResult = document.createElement("div");
+                //divResult.innerHTML = user.getLog();
+                //document.body.appendChild(divResult);
+                let login = document.getElementById("login")
+                login.value = user.getLog();
+               // let divResult = document.createElement("div"); //надо добавить в уже существующий  input||textArea
+                //divResult.innerHTML = (`${firstName.value[0]}${lastName.value}`).toLocaleLowerCase(); // подклчить ф-цию
+                //document.body.appendChild(divResult);
+            }
+        })
+
+
+        function createNewUser(firstN, lastN) {
+            this.firstN = firstN;
+            this.lastN = lastN;
+            this.getLog = function() {
+                //(первая буква + второе имя) и все в нижнем регистре .toLowerCase()
+                return (this.firstN[0] + this.lastN).toLowerCase();
+            
+            }
+        }
+        //let user = new createNewUser(firstName, lastName);
+        //console.log(user);
+        // console.log(user.getLogin());
+        /* function createNewUser(firstName, lastName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+             this.getLogin = function(){
+                 //(this.firstName[0] - первая буква +  this.lastName-второе имя) и все в нижнем регистре .toLowerCase()
+                 return (this.firstName[0] + this.lastName).toLowerCase();
+             }
+        }
+         let user = new createNewUser(prompt("Enter your first name",""),prompt("Enter your last name",""));
+         console.log(user);
+         console.log(user.getLogin());*/
+
+    </script>
+
+</body>
+
+</html>

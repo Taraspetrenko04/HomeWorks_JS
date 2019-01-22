@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="subject" placeholder="Subject">
+    <textarea id="msg"></textarea>
+    <input type="submit" value="Send" id="btn">
+    <script>
+        let elem = document.getElementById("subject");
+        let area = document.getElementById("msg");
+        let buttom = document.getElementById("btn");
+        buttom.addEventListener("click", function() {
+            if (area.value.length == 0 || elem.value.length == 0) {
+                alert("Вы не ввели значение ");
+            } else {
+
+                let divResult = document.createElement("div");//надо добавить в форму
+                divResult.innerHTML = `${area.value} ${elem.value}`;
+                document.body.appendChild(divResult);
+            }
+        })
+
+    </script>
+</body>
+
+</html>

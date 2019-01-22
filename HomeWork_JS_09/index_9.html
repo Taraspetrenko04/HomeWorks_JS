@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function parseDate(str) {
+            var mdy = str.split('.');
+            return new Date(mdy[2] - 1, mdy[0] - 1, mdy[1]);
+        }
+        let birthDay = prompt("Enter your age, please (dd.mm.yyyy)" + ""); //"17.5.1989" 
+        let formatBirth = parseDate(birthDay);
+         console.log (formatBirth);
+        let today = new Date(); //текущая дат
+        let diff = today - formatBirth; // разница в милисекундах 
+        let seconds = Math.floor(diff / 1000)
+        let minutes = Math.floor(seconds / 60)
+        let hours = Math.floor(minutes / 60)
+        let days = Math.floor(hours / 24)
+        let months = Math.floor(days / 29.5)
+        let years = Math.floor(seconds / 60 / 60 / 24 / 365.242199);
+        console.log(years);
+        //seconds %= 60;
+        minutes %= 60;
+        hours %= 24;
+        days %= 30;
+        //months %= 12;
+        document.write("your are ", years, " year(s) old");
+        //GOROSKOP;
+        let d = (birthDay[0] + birthDay[1]) //берем день
+        let m = Number(birthDay[3] + birthDay[4]); // берем месяц
+        let zodiak = iHoroscopej(d, m);
+        function iHoroscopej(x, y) {
+            let aTmp = [
+                [1, 'iWwWj'],
+                [19, 'Козерог (22.12–19.1)'],
+                [18, 'Водолей (20.1–18.2)'],
+                [20, 'Рыбы (19.2–20.3)'],
+                [19, 'Овен (21.3–19.4)'],
+                [20, 'Телец (20.4–20.5)'],
+                [21, 'Близнецы (21.5–21.6)'],
+                [22, 'Рак (22.6–22.7)'],
+                [22, 'Лев (23.7–22.8)'],
+                [22, 'Дева (23.8–22.9)'],
+                [22, 'Весы (23.9–22.10)'],
+                [22, 'Скорпион (23.10–22.11)'],
+                [21, 'Стрелец (23.11–21.12)']
+            ];
+            let d = x * 1;
+            let m = y * 1;
+            if (d < 1 || d > 31) {
+                m = 0;
+                d = 0;
+            }
+            if (m < 1 || m > 12) {
+                m = 0;
+                d = 0;
+            }
+            if (d > aTmp[m][0]) m += 1;
+            if (m > 12) m = 1;
+            let p = (document.write("</br>" + "Ваш знак зодиака: " + aTmp[m][1]));
+        }
+    </script>
+
+
+</body>
+
+</html>
